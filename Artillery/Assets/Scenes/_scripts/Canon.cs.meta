@@ -3,7 +3,10 @@ guid: d2279cce712413943b3c467ce8a7bbcb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - clipDisparo: {fileID: 8300000, guid: a92807f4c48f12b44b94690f49e585f1, type: 3}
+  - BalaPrefab: {fileID: 6432224141677853509, guid: 24b815b98697df040a952356256cb2dc, type: 3}
+  - ParticulasDisparo: {fileID: 3396464634324686138, guid: 9abb26190c8f1664f874389b0cb3e637, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
