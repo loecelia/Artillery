@@ -24,7 +24,7 @@ public class Canon : MonoBehaviour
 
     public Transform transformNumeroBalas;
     public TMP_Text textoNumeroBalas;
-
+    
     private void Awake()
     {
         canonControls = new CanonControls(); 
@@ -80,7 +80,7 @@ public class Canon : MonoBehaviour
     private void Disparar(InputAction.CallbackContext context)
     {
        
-        if (AdministradorJuego.miJuego.DisparosPorJuego > 0)
+        if (AdministradorJuego.miJuego.DisparosPorJuego > 0 && Bloqueado == false && AdministradorJuego.miJuego.JuegoPausa == false)
         {
             GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);
             Rigidbody tempRB = temp.GetComponent<Rigidbody>();
@@ -97,5 +97,10 @@ public class Canon : MonoBehaviour
             //SourceDisparo.Play();                 
             Bloqueado = true;
         }
+    }
+
+    private void ModificarFuerza(InputAction.CallbackContext context)
+    {
+        GetComponent<Rigidbody>().AddForce(new Vector3(AdministradorJuego.miJuego.FuerzaCanon, 0, 0));
     }
 }

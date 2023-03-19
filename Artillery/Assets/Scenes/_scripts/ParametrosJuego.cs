@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ParametrosJuego
 {
-    private int velocidadBala;
+    private float velocidadBala;
     private int disparosPorJuego;
     private float velocidadRotacion;
+    private float fuerzaCanon;
+    private bool juegoPausa;
+    private float tiempoPausa;
 
-    public int VelocidadBala
+    
+    public float VelocidadBala
     {
         get
         {
@@ -41,6 +45,42 @@ public class ParametrosJuego
         set
         {
             velocidadRotacion  = value;
+        }
+    }
+
+    public float FuerzaCanon
+    {
+        get
+        {
+            return fuerzaCanon;
+        }
+        set
+        {
+            fuerzaCanon = value;
+        }
+    }
+
+    public bool JuegoPausa
+    {
+        get
+        {
+            return juegoPausa;
+        }
+        set
+        {
+            juegoPausa = value;
+        }
+    }
+
+    public float TiempoPausa
+    {
+        get
+        {
+            return tiempoPausa;
+        }
+        set
+        {
+            tiempoPausa = value;
         }
     }
 }
