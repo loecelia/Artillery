@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.UI;
 
 public class Canon : MonoBehaviour
 {
     public static bool Bloqueado;
+    public float fuerzaCanon = 0.5f;
+    Opciones opciones;
+    Slider sliderfuerza;
 
     public AudioClip clipDisparo;
     private GameObject SonidoDisparo;
@@ -37,6 +41,7 @@ public class Canon : MonoBehaviour
         disparar = canonControls.Canon.Disparar;
         apuntar.Enable();
         modificarFuerza.Enable();
+        modificarFuerza.performed += ModificarFuerza;
         disparar.Enable();
         //    disparar.performed += Disparar;
         disparar.performed += Disparar;
@@ -94,7 +99,7 @@ public class Canon : MonoBehaviour
             Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
             GameObject Particulas = Instantiate
                 (ParticulasDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
-            tempRB.velocity = direccionDisparo.normalized * AdministradorJuego.miJuego.VelocidadBala * AdministradorJuego.miJuego.FuerzaCanon;
+            tempRB.velocity = direccionDisparo.normalized * (AdministradorJuego.miJuego.VelocidadBala * AdministradorJuego.miJuego.FuerzaCanon);
             //GameObject Particulas = Instantiate(ParticulasDisparo, puntaCanon.transform.position, Vector3.zero);
             AdministradorJuego.miJuego.DisparosPorJuego -= 1;
             SourceDisparo.PlayOneShot(clipDisparo);
@@ -105,6 +110,14 @@ public class Canon : MonoBehaviour
 
     private void ModificarFuerza(InputAction.CallbackContext context)
     {
-        GetComponent<Rigidbody>().AddForce(new Vector3(AdministradorJuego.miJuego.FuerzaCanon, 0, 0));
+        //GetComponent<Rigidbody>().AddForce(new Vector3(AdministradorJuego.miJuego.FuerzaCanon, 0, 0));
+        Debug.Log(modificarFuerza.ReadValue<float>());
+        if (modificarFuerza.ReadValue<float>() == 1) sliderfuerza.value += 0.1f;
+        if (modificarFuerza.ReadValue<float>() == -1) sliderfuerza.value -= 0.1f;
+
+        if (sliderfuerza.value > 1.0f) sliderfuerza.value = 1.0f;
+        else if (sliderfuerza.value < 0.5f) sliderfuerza.value = 0.5f;
     }
+
+   
 }

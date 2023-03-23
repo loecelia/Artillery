@@ -13,16 +13,19 @@ public class MenuPausa : MonoBehaviour
     {
         menuPausa.SetActive(true);
         if (menuOpciones.activeInHierarchy) menuOpciones.SetActive(false);
+        AdministradorJuego.miJuego.PausarTimeScaleJuego(true);
     }
 
     public void OcultarMenuPausa()
     {
         menuPausa.SetActive(false);
+        AdministradorJuego.miJuego.PausarTimeScaleJuego(false);
     }
 
     public void RegresarAPantallaPrincipal()
     {
         SceneManager.LoadScene(0);
+        AdministradorJuego.miJuego.PausarTimeScaleJuego(false);
     }
 
     public void MostrarMenuOpciones()

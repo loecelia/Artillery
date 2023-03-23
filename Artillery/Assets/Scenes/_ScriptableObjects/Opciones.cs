@@ -7,7 +7,7 @@ public class Opciones : ObjetoPersistente
 {
     public float velocidadBola = 30;
     public float velocidadRotacion=1.0f;
-    public float fuerzaCanon = 0.5f; 
+    
     
     public void CambiarVelocidadBola(float nuevaVelocidadBola)
     {
@@ -21,8 +21,8 @@ public class Opciones : ObjetoPersistente
 
     public void CambiarFuerzaCanon(float nuevaFuerzaCanon)
     {
-        fuerzaCanon = nuevaFuerzaCanon;
+        AdministradorJuego.miJuego.FuerzaCanon = nuevaFuerzaCanon;
     }
 
-    
+
 }

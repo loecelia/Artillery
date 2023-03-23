@@ -28,6 +28,7 @@ public class MenuFinNivel : MonoBehaviour
 
     public void ReintentarNivel()
     {
+        AdministradorJuego.miJuego.PausarTimeScaleJuego(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

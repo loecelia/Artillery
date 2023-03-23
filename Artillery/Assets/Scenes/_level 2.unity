@@ -8608,6 +8608,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1976332939, guid: 2dc4db97324c712429b18458a87d0357, type: 3}
+      propertyPath: opciones
+      value: 
+      objectReference: {fileID: 11400000, guid: b0649020089820642a25e7aecd38ab90, type: 2}
+    - target: {fileID: 1976332939, guid: 2dc4db97324c712429b18458a87d0357, type: 3}
       propertyPath: BalaPrefab
       value: 
       objectReference: {fileID: 6432224141677853509, guid: 24b815b98697df040a952356256cb2dc, type: 3}

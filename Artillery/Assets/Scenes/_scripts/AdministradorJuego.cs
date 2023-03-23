@@ -26,10 +26,10 @@ public class AdministradorJuego : MonoBehaviour
             SingletonAdministradorJuego = this;
             miJuego.VelocidadBala = 30f;
             miJuego.DisparosPorJuego = 7;
-            miJuego.VelocidadRotacion = 1f;
-            miJuego.FuerzaCanon= 1f;
+            miJuego.VelocidadRotacion = 1.0f;
+            miJuego.FuerzaCanon= 1.0f;
             miJuego.JuegoPausa = false;
-            miJuego.TiempoPausa = 0;
+            miJuego.TiempoPausa = 0.0f;
         }
         else
         {
