@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuFinNivel : MonoBehaviour
 {
+    //private GameObject AdministradorJuego;
     public void SiguienteNivel()
     {
+        AdministradorJuego.miJuego.PausarTimeScaleJuego(false);
         var siguienteNivel = SceneManager.GetActiveScene().buildIndex + 1;
         if(SceneManager.sceneCountInBuildSettings > siguienteNivel)
         {
@@ -20,6 +22,7 @@ public class MenuFinNivel : MonoBehaviour
 
     public void CargarMenuPrincipal()
     {
+        AdministradorJuego.miJuego.PausarTimeScaleJuego(false);
         SceneManager.LoadScene(0);
     }
 

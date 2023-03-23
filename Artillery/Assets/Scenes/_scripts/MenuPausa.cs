@@ -34,24 +34,25 @@ public class MenuPausa : MonoBehaviour
     public void PonerPausa(float nuevaPausa)
     {
         AdministradorJuego.miJuego.TiempoPausa = nuevaPausa;
-        AdministradorJuego.miJuego.JuegoPausa = true;
+        AdministradorJuego.miJuego.PausarTimeScaleJuego(true);
+
     }
 
     public void PausarJuego()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 1.0f) //(Time.timeScale == 0)
         {
-            Time.timeScale = 1;
+            Time.timeScale = 0.0f;            
         }
         else
         {
-            Time.timeScale = 0;
+            Time.timeScale = 1.0f;            
         }
     }
 
-    //public void QuitarPausa()
-    //{
-    //    AdministradorJuego.miJuego.TiempoPausa = 0;
-    //    AdministradorJuego.miJuego.JuegoPausa= false;
-    //}
+    public void QuitarPausa(float nuevaPausa)
+    {
+        AdministradorJuego.miJuego.TiempoPausa = nuevaPausa;
+        AdministradorJuego.miJuego.PausarTimeScaleJuego(true);
+    }
 }

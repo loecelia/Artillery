@@ -50,35 +50,20 @@ public class AdministradorJuego : MonoBehaviour
         if (miJuego.DisparosPorJuego <= 0)
         {
             PerderJuego();
-        }
-               
-        if(Time.timeScale == 1 && miJuego.JuegoPausa == true)
-        {
-            maxTime = currentTime + miJuego.TiempoPausa;
-            //miJuego.JuegoPausa = true;
-            Time.timeScale = 0;
-            currentTime = 0;
-            maxTime = currentTime + miJuego.TiempoPausa;
-
-        }
-        else if(Time.timeScale == 0 && miJuego.JuegoPausa == true && currentTime >= maxTime)
-        {
-            miJuego.JuegoPausa = false;
-            Time.timeScale = 1;
-        }
-
-        currentTime += Time.deltaTime;
+        }               
+        
     }
 
     public void GanarJuego()
     {
         CanvasGanar.SetActive(true);
+        miJuego.PausarTimeScaleJuego(true);
     }
 
     public void PerderJuego()
     {
         CanvasPerder.SetActive(true);
-        //MenuFinNivel.SetActive(true);
+        miJuego.PausarTimeScaleJuego(true);
     }
 
 

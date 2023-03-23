@@ -67,14 +67,18 @@ public class Canon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotacion += apuntar.ReadValue<float>() * AdministradorJuego.miJuego.VelocidadRotacion;
-        if (rotacion <= 90 && rotacion >= 0)
+        if (AdministradorJuego.miJuego.JuegoPausa == false)
         {
-            transform.eulerAngles = new Vector3(rotacion, 90, 0.0f);
+            rotacion += apuntar.ReadValue<float>() * AdministradorJuego.miJuego.VelocidadRotacion;
+            if (rotacion <= 90 && rotacion >= 0)
+            {
+                transform.eulerAngles = new Vector3(rotacion, 90, 0.0f);
+            }
+            if (rotacion > 90) rotacion = 90;
+            if (rotacion < 0) rotacion = 0;
+            textoNumeroBalas.text = $"NumeroBalas: {AdministradorJuego.miJuego.DisparosPorJuego}";
         }
-        if (rotacion > 90) rotacion = 90;
-        if (rotacion < 0) rotacion = 0;
-        textoNumeroBalas.text = $"NumeroBalas: {AdministradorJuego.miJuego.DisparosPorJuego}";
+        
     }
 
     private void Disparar(InputAction.CallbackContext context)
@@ -90,7 +94,7 @@ public class Canon : MonoBehaviour
             Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
             GameObject Particulas = Instantiate
                 (ParticulasDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
-            tempRB.velocity = direccionDisparo.normalized * AdministradorJuego.miJuego.VelocidadBala;
+            tempRB.velocity = direccionDisparo.normalized * AdministradorJuego.miJuego.VelocidadBala * AdministradorJuego.miJuego.FuerzaCanon;
             //GameObject Particulas = Instantiate(ParticulasDisparo, puntaCanon.transform.position, Vector3.zero);
             AdministradorJuego.miJuego.DisparosPorJuego -= 1;
             SourceDisparo.PlayOneShot(clipDisparo);

@@ -7,9 +7,11 @@ public class MenuPrincipal : MonoBehaviour
 {
     public GameObject MenuOpciones;
     public GameObject MenuInicial;
+    //private GameObject AdministradorJuego;
 
     public void IniciarJuego()
     {
+        AdministradorJuego.miJuego.PausarTimeScaleJuego(false);
         SceneManager.LoadScene(1);
     }
 
@@ -27,6 +29,7 @@ public class MenuPrincipal : MonoBehaviour
 
     public void MostrarMenuInicial()
     {
+        AdministradorJuego.miJuego.PausarTimeScaleJuego(false);
         MenuOpciones.SetActive(false);
         MenuInicial.SetActive(true);
     }

@@ -83,4 +83,31 @@ public class ParametrosJuego
             tiempoPausa = value;
         }
     }
+
+    //public void PausarTimeJuego()
+    //{
+    //    juegoPausa = true;
+    //    Time.timeScale = 0.0f;
+    //}
+
+    //public void UnPauseTimeJuego()
+    //{
+    //    juegoPausa = false;
+    //    Time.timeScale = 1.0f;
+    //}
+
+    //
+    public void PausarTimeScaleJuego(bool newJuegoPausa)
+    {
+        if (newJuegoPausa)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+        juegoPausa = newJuegoPausa;
+    }
+
 }

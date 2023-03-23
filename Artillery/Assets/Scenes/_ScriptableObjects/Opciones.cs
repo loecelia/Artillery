@@ -6,8 +6,8 @@ using UnityEngine;
 public class Opciones : ObjetoPersistente
 {
     public float velocidadBola = 30;
-    public float velocidadRotacion=1f;
-    public float fuerzaCanon = 1f; 
+    public float velocidadRotacion=1.0f;
+    public float fuerzaCanon = 0.5f; 
     
     public void CambiarVelocidadBola(float nuevaVelocidadBola)
     {
